@@ -1,9 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const Chart = () => (
+const Chart = ({ statistics }) => (
   <div>
-    Chart data
+    <pre>
+      {JSON.stringify(statistics, null, '\n')}
+    </pre>
   </div>
 );
 
-export default Chart;
+Chart.propTypes = {
+  statistics: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
+const mapStateToProps = (state) => ({
+  statistics: state
+});
+
+export default connect(mapStateToProps, null)(Chart);

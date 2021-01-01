@@ -13,7 +13,13 @@ const yAxis = (data) => {
 
   return meetingTypes.map((meetingType) => ({
     label: meetingType,
-    data: getMeetingDataArray(data, meetingType)
+    data: getMeetingDataArray(data, meetingType),
+    lineTension: 0,
+    fill: false,
+    borderWidth: 3,
+    backgroundColor: 'rgba(20, 96, 82, 1)',
+    borderColor: 'rgba(20, 96, 82, 1)',
+    hoverBorderWidth: 5
   }));
 };
 

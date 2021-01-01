@@ -7,14 +7,33 @@ import formatChartData from '../utils/formatChartData';
 const options = {
   legend: {
     display: false
+  },
+  grid: {
+    display: false
+  },
+  maintainAspectRatio: false,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true
+      }
+    }]
+  },
+  hover: {
+    animationDuration: 300
+  },
+  layout: {
+    padding: 30
   }
 };
 
 const Chart = ({ statistics }) => (
   <div>
     <Line
-      options={options}
       data={() => formatChartData(statistics)}
+      width={400}
+      height={600}
+      options={options}
     />
   </div>
 );

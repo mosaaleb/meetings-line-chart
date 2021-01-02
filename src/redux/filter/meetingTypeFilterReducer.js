@@ -1,7 +1,13 @@
 import MEETING_TYPE_FILTER from './meetingTypeFilterTypes';
 
-const meetingTypeFilterReducer = (state = 'SHOW_ALL', action) => {
-  switch (action) {
+const initialState = [
+  'numberOfTypeA',
+  'numberOfTypeB',
+  'numberOfTypeC'
+];
+
+const meetingTypeFilterReducer = (state = initialState, action) => {
+  switch (action.type) {
     case MEETING_TYPE_FILTER: return action.payload;
     default:
       return state;

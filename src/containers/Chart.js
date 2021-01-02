@@ -27,23 +27,40 @@ const options = {
   }
 };
 
-const Chart = ({ statistics }) => (
-  <div>
-    <Line
-      data={() => formatChartData(statistics)}
-      width={400}
-      height={600}
-      options={options}
-    />
-  </div>
-);
+const Chart = ({ filter, statistics }) => {
+  const applyFilter = (array, filterOptions) => (
+    array.map((item) => {
+      const object = { meetingDay: item.meetingDay };
+      filterOptions.forEach((option) => { object[option] = item[option]; });
+      return object;
+    })
+  );
+
+  const filteredStatistics = applyFilter(statistics, filter);
+
+  return (
+    <div>
+      <pre>
+        {JSON.stringify(filter, null, '\n')}
+      </pre>
+      <Line
+        data={() => formatChartData(filteredStatistics)}
+        width={400}
+        height={600}
+        options={options}
+      />
+    </div>
+  );
+};
 
 Chart.propTypes = {
+  filter: PropTypes.arrayOf(PropTypes.string).isRequired,
   statistics: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 const mapStateToProps = (state) => ({
+  filter: state.meetingTypeFilter,
   statistics: state.statistics
 });
 
-export default connect(mapStateToProps, null)(Chart);
+export default connect(mapStateToProps)(Chart);

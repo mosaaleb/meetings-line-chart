@@ -43,7 +43,7 @@ Chart.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  statistics: state
+  statistics: state.statistics
 });
 
 export default connect(mapStateToProps, null)(Chart);

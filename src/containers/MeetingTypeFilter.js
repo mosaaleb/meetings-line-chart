@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../components/Button';
 
 const MeetingTypeFilter = () => {
-  const meetingTypes = ['TypeA', 'TypeB', 'TypeC'];
+  const meetingTypes = ['numberOfTypeA', 'numberOfTypeB', 'numberOfTypeC'];
 
   return (
     <div>

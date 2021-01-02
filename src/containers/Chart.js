@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Line } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 import formatChartData from '../utils/formatChartData';
+import styles from '../styles/Chart.module.scss';
 
 const options = {
   legend: {
@@ -25,8 +26,7 @@ const options = {
         beginAtZero: true,
         fontColor: '#b43f4d',
         fontFamily: "'Fira Sans', sans-serif",
-        fontSize: 20,
-        padding: 10
+        fontSize: 20
       },
       gridLines: {
         zeroLineColor: '#b43f4d',
@@ -46,8 +46,7 @@ const options = {
       ticks: {
         fontColor: '#b43f4d',
         fontFamily: "'Fira Sans', sans-serif",
-        fontSize: 20,
-        padding: 10
+        fontSize: 20
       },
       gridLines: {
         zeroLineColor: '#b43f4d',
@@ -77,13 +76,15 @@ const Chart = ({ filter, statistics }) => {
   const filteredStatistics = applyFilter(statistics, filter);
 
   return (
-    <div>
-      <Line
-        data={() => formatChartData(filteredStatistics)}
-        width={400}
-        height={600}
-        options={options}
-      />
+    <div className={styles.container}>
+      <div className={styles.section}>
+        <Line
+          data={() => formatChartData(filteredStatistics)}
+          width={400}
+          height={600}
+          options={options}
+        />
+      </div>
     </div>
   );
 };

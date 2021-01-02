@@ -1,7 +1,8 @@
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import statisticsReducer from './statistics/statisticsReducer';
+import rootReducer from './rootReducer';
 
-const store = createStore(statisticsReducer, composeWithDevTools());
+const store = createStore(rootReducer, composeWithDevTools());
+window.store = store;
 
 export default store;

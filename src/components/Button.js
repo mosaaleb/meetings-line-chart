@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/Button.module.scss';
 
 const Button = ({ meetingType, meetingTypeSelect, meetingTypeDeselect }) => {
   const [isSelected, setIsSelected] = useState(true);
@@ -13,11 +14,13 @@ const Button = ({ meetingType, meetingTypeSelect, meetingTypeDeselect }) => {
     }
   };
 
+  const selectedClass = isSelected ? styles.selectedButton : styles.deSelectedButton;
+
   return (
     <button
       type="button"
       onClick={applyFilter}
-      style={{ textDecoration: isSelected === false && 'line-through' }}
+      className={`${styles.button} ${selectedClass}`}
     >
       {meetingType}
     </button>

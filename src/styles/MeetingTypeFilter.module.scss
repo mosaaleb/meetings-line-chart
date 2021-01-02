@@ -1,0 +1,8 @@
+@import 'variables';
+@import 'structure';
+
+.filterButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}

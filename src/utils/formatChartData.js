@@ -17,9 +17,9 @@ const yAxis = (data) => {
     lineTension: 0,
     fill: false,
     borderWidth: 3,
-    backgroundColor: 'rgba(20, 96, 82, 1)',
-    borderColor: 'rgba(20, 96, 82, 1)',
-    hoverBorderWidth: 5
+    backgroundColor: 'rgba(180, 63, 77, .9)',
+    borderColor: 'rgba(180, 63, 77, .6)',
+    hoverBorderWidth: 4
   }));
 };
 

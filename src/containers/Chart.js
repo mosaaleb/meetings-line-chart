@@ -14,8 +14,46 @@ const options = {
   maintainAspectRatio: false,
   scales: {
     yAxes: [{
+      scaleLabel: {
+        display: true,
+        fontFamily: "'Fira Sans', sans-serif",
+        labelString: '# of Weekly Meetings',
+        fontColor: '#b43f4d',
+        fontSize: 20
+      },
       ticks: {
-        beginAtZero: true
+        beginAtZero: true,
+        fontColor: '#b43f4d',
+        fontFamily: "'Fira Sans', sans-serif",
+        fontSize: 20,
+        padding: 10
+      },
+      gridLines: {
+        zeroLineColor: '#b43f4d',
+        zeroLineWidth: 7,
+        lineWidth: 1,
+        color: 'rgba(180, 63, 77, .4)'
+      }
+    }],
+    xAxes: [{
+      scaleLabel: {
+        display: true,
+        fontFamily: "'Fira Sans', sans-serif",
+        labelString: 'Mondays',
+        fontColor: '#b43f4d',
+        fontSize: 20
+      },
+      ticks: {
+        fontColor: '#b43f4d',
+        fontFamily: "'Fira Sans', sans-serif",
+        fontSize: 20,
+        padding: 10
+      },
+      gridLines: {
+        zeroLineColor: '#b43f4d',
+        zeroLineWidth: 7,
+        lineWidth: 1,
+        color: 'rgba(180, 63, 77, .4)'
       }
     }]
   },

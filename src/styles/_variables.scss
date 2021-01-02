@@ -1,0 +1,22 @@
+$color--primary: #fdd87e;
+$color--secondary: #b43f4d;
+
+$width--sm:           640px;
+$width--md:           768px;
+$width--lg:           1024px;
+
+$max-width--sm:       730px;
+$max-width--md:       900px;
+$max-width--lg:       1200px;
+
+@mixin tablet {
+  @media (min-width: #{$width--md}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$width--lg}) {
+    @content;
+  }
+}

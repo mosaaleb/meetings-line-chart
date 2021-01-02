@@ -1,0 +1,20 @@
+@import './variables';
+
+.container {
+  padding-top: .125rem;
+  padding-bottom: .125rem;
+}
+
+.section {
+  margin: 1rem auto;
+  padding: 0.95rem 2rem;
+  max-width: $max-width--sm;
+
+  @include tablet {
+    max-width: $max-width--md;
+  }
+
+  @include desktop {
+    max-width: $max-width--lg;
+  }
+}

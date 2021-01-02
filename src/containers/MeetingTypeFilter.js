@@ -1,26 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from '../components/Button';
-import meetingTypeFilter from '../redux/filter/meetingTypeFilterActions';
+import {
+  meetingTypeSelect, meetingTypeDeselect
+} from '../redux/filter/meetingTypeFilterActions';
 
-const MeetingTypeFilter = ({ meetingTypeFilter }) => {
-  const allMeetingTypes = ['numberOfTypeA', 'numberOfTypeB', 'numberOfTypeC'];
-  const [meetingTypes, setMeetingTypes] = useState([
-    'numberOfTypeA',
-    'numberOfTypeB',
-    'numberOfTypeC'
-  ]);
+const MeetingTypeFilter = ({ meetingTypeSelect, meetingTypeDeselect }) => {
+  const meetingTypes = ['numberOfTypeA', 'numberOfTypeB', 'numberOfTypeC'];
 
   return (
     <div>
-      {allMeetingTypes.map((meetingType) => (
+      {meetingTypes.map((meetingType) => (
         <Button
           key={meetingType}
           meetingType={meetingType}
-          meetingTypes={meetingTypes}
-          setMeetingTypes={setMeetingTypes}
-          meetingTypeFilter={meetingTypeFilter}
+          meetingTypeSelect={meetingTypeSelect}
+          meetingTypeDeselect={meetingTypeDeselect}
         />
       ))}
     </div>
@@ -28,11 +24,17 @@ const MeetingTypeFilter = ({ meetingTypeFilter }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  meetingTypeFilter: (meetingTypes) => dispatch(meetingTypeFilter(meetingTypes))
+  meetingTypeSelect: (meetingType) => (
+    dispatch(meetingTypeSelect(meetingType))
+  ),
+  meetingTypeDeselect: (meetingType) => (
+    dispatch(meetingTypeDeselect(meetingType))
+  )
 });
 
 MeetingTypeFilter.propTypes = {
-  meetingTypeFilter: PropTypes.func.isRequired
+  meetingTypeSelect: PropTypes.func.isRequired,
+  meetingTypeDeselect: PropTypes.func.isRequired
 };
 
 export default connect(null, mapDispatchToProps)(MeetingTypeFilter);

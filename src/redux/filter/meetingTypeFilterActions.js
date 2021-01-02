@@ -1,8 +1,14 @@
-import MEETING_TYPE_FILTER from './meetingTypeFilterTypes';
+import {
+  MEETING_TYPE_SELECT,
+  MEETING_TYPE_DESELECT
+} from './meetingTypeFilterTypes';
 
-const meetingTypeFilter = (meetingTypes) => ({
-  type: MEETING_TYPE_FILTER,
-  payload: meetingTypes
+export const meetingTypeSelect = (meetingType) => ({
+  type: MEETING_TYPE_SELECT,
+  payload: meetingType
 });
 
-export default meetingTypeFilter;
+export const meetingTypeDeselect = (meetingType) => ({
+  type: MEETING_TYPE_DESELECT,
+  payload: meetingType
+});

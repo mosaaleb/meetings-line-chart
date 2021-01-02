@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({
-  meetingType, meetingTypes, setMeetingTypes, meetingTypeFilter
-}) => {
-  const handleChangeFilter = () => {
-    if (meetingTypes.includes(meetingType)) {
-      setMeetingTypes(meetingTypes.filter((type) => type !== meetingType));
+const Button = ({ meetingType, meetingTypeSelect, meetingTypeDeselect }) => {
+  const [isSelected, setIsSelected] = useState(true);
+
+  const applyFilter = () => {
+    setIsSelected(!isSelected);
+    if (isSelected === true) {
+      meetingTypeDeselect(meetingType);
     } else {
-      setMeetingTypes([...meetingTypes, meetingType]);
+      meetingTypeSelect(meetingType);
     }
-    meetingTypeFilter(meetingTypes);
   };
 
   return (
-    <button type="button" onClick={handleChangeFilter}>
+    <button
+      type="button"
+      onClick={applyFilter}
+      style={{ textDecoration: isSelected === false && 'line-through' }}
+    >
       {meetingType}
     </button>
   );
@@ -22,9 +26,8 @@ const Button = ({
 
 Button.propTypes = {
   meetingType: PropTypes.string.isRequired,
-  setMeetingTypes: PropTypes.func.isRequired,
-  meetingTypeFilter: PropTypes.func.isRequired,
-  meetingTypes: PropTypes.arrayOf(PropTypes.string).isRequired
+  meetingTypeSelect: PropTypes.func.isRequired,
+  meetingTypeDeselect: PropTypes.func.isRequired
 };
 
 export default Button;

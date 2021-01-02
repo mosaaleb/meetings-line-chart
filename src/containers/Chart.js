@@ -40,9 +40,6 @@ const Chart = ({ filter, statistics }) => {
 
   return (
     <div>
-      <pre>
-        {JSON.stringify(filter, null, '\n')}
-      </pre>
       <Line
         data={() => formatChartData(filteredStatistics)}
         width={400}

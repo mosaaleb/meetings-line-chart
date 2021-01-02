@@ -30,7 +30,7 @@ const options = {
 const Chart = ({ filter, statistics }) => {
   const applyFilter = (array, filterOptions) => (
     array.map((item) => {
-      const object = { meetingDay: item.meetingDay };
+      const object = { weekStart: item.weekStart };
       filterOptions.forEach((option) => { object[option] = item[option]; });
       return object;
     })

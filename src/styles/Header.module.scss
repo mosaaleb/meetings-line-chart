@@ -1,0 +1,21 @@
+@import "variables";
+@import "structure";
+
+.header {
+  border-bottom: 7px solid $color--secondary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerText {
+  font-size: 2rem;
+  color: $color--secondary;
+  font-weight: 900;
+  font-variant:small-caps;
+  transform: scale(1, 1.2);
+
+  @include tablet {
+    font-size: 3rem;
+  }
+}
